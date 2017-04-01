@@ -37,12 +37,21 @@ module CapybaraTurbolinks
           @touched = true
           current_scope.send(:click_turbolink, *args, &block)
         end
+
+        define_method :click_turbobutton do |*args, &block|
+          @touched = true
+          current_scope.send(:click_turbobutton, *args, &block)
+        end
       end
     end
     module DSL
       class_eval do
         define_method :click_turbolink do |*args, &block|
           page.send :click_turbolink, *args, &block
+        end
+
+        define_method :click_turbobutton do |*args, &block|
+          page.send :click_turbobutton, *args, &block
         end
       end
     end
