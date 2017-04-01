@@ -13,6 +13,12 @@ module CapybaraTurbolinks
             has_css? FETCH_CSS_SELECTOR
             has_css? COMPLETE_CSS_SELECTOR 
           end
+
+          def click_turbobutton(*args)
+            click_button(*args)
+            has_css? FETCH_CSS_SELECTOR
+            has_css? COMPLETE_CSS_SELECTOR 
+          end
         end
       end
       class Element < Base
